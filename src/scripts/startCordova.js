@@ -1,4 +1,3 @@
-import shell from 'shelljs'
 import run, {cordova, jet} from '../index'
 // $ startCordova
 

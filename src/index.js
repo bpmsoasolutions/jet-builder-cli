@@ -1,3 +1,4 @@
+import path from 'path'
 import recreateDir from './utils/recreateDir'
 import copyByFound from './utils/copyByFound'
 import copyFolders from './utils/copyFolders'
@@ -21,6 +22,7 @@ import serveC from './cordova/serve'
 
 import run from './common/run'
 
+const pwd = path.resolve(__dirname, '../')
 const cordova = {
     add,
     clean,
@@ -28,7 +30,7 @@ const cordova = {
     plugins,
     prepare,
     ripple,
-    runC,
+    run: runC,
     serve: serveC
 }
 
@@ -44,7 +46,8 @@ export  {
     jet,
     rjsOptimizer,
     serve,
-    cordova
+    cordova,
+    pwd
 }
 
 export default run

@@ -21,7 +21,7 @@ async function jetAssets(args) {
     let destination = (cordova) ? 'app/www' : 'dist'
 
     if (cordova) {
-        platforms.map((platform) => {
+        platforms.forEach((platform) => {
             run(recreateDir, `app/merges/${platform.out} app/merges/${platform.out}/images app/merges/${platform.out}/fonts`)
             run(copy, `-f ${jetPath}/css/${platform.in}/oj-alta.css app/merges/${platform.out}`)
             run(copyFolders, `${jetPath}/css/${platform.in}/images app/merges/${platform.out}/images`)

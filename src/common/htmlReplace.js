@@ -1,7 +1,8 @@
 import shell from 'shelljs'
 import fs from 'fs'
+import path from 'path'
 
-const index = fs.readFileSync('src/index.html', 'utf-8')
+const index = fs.readFileSync(path.join('src', 'index.html'), 'utf-8')
 
 // $ htmlReplace [cordova or empty]
 
@@ -41,6 +42,6 @@ async function htmlReplace(args) {
 
     text = textReplace('<!-- altaCss -->', null, `<link rel="stylesheet" href="oj-alta.css" type="text/css" />`, text)
 
-    fs.writeFileSync(`${output}/index.html`, text, {encoding: 'utf-8'})
+    fs.writeFileSync(path.join(output, 'index.html'), text, {encoding: 'utf-8'})
 }
 export default htmlReplace;

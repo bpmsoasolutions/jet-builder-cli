@@ -33,7 +33,7 @@ async function copyByFound(args) {
     }
 
     files
-        .map(f=>{
+        .forEach(f=>{
             return copyWithPath(f, args[1], args[2])
         })
 }

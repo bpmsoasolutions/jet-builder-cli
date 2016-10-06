@@ -1,4 +1,7 @@
 import shell from 'shelljs'
+import path from 'path'
+
+import {pwd} from '../index'
 
 // $ compile --build-config='' --release --target=''
 
@@ -10,7 +13,7 @@ async function compile(args) {
     }
 
     shell.cd('app')
-    shell.exec(`cordova compile ${args.join(' ')}`);
+    shell.exec(`${path.resolve(pwd, 'node_modules/.bin/cordova')} compile ${args.join(' ')}`);
     shell.cd('..')
 }
 

@@ -35,7 +35,7 @@ async function rjsOptimizer(args) {
 
     let mergedPaths = Object.assign(requireJsConfig.paths, requirejsDevCfg.paths)
     Object.keys(mergedPaths)
-        .map(f=>{
+        .forEach(f=>{
             mergedPaths[f] = mergedPaths[f].replace('bower_modules', `../${bowerCfg.directory}`)
         })
 
@@ -45,7 +45,7 @@ async function rjsOptimizer(args) {
     let exclude = ["jqueryui-amd","ojs","ojtranslations"]
     Object.keys(mergedPaths)
         .filter(f=>exclude.indexOf(f)<0)
-        .map(f=>{
+        .forEach(f=>{
             includes.push(mergedPaths[f])
         })
 

@@ -1,5 +1,3 @@
-import shell from 'shelljs'
-
 import run, {recreateDir,copy,clean,jet,rjsOptimizer,components,htmlReplace, cordova} from '../index'
 // $ buildCordova
 
