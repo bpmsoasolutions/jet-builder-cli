@@ -1,8 +1,5 @@
 import shell from 'shelljs'
 import path from 'path'
-
-import {pwd} from '../index'
-
 // $ add [platform1] [platform2] ...
 
 async function add(args) {
@@ -10,8 +7,8 @@ async function add(args) {
 
     shell.cd('app')
     args.map(target=>{
-        shell.exec(`cordova platform rm ${target}`);
-        shell.exec(`cordova platform add ${target}`);
+        shell.exec(`${path.resolve('node_modules/.bin/cordova')} platform rm ${target}`);
+        shell.exec(`${path.resolve('node_modules/.bin/cordova')} platform add ${target}`);
     })
     shell.cd('..')
 }

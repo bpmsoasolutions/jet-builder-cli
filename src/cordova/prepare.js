@@ -1,11 +1,9 @@
 import shell from 'shelljs'
 import path from 'path'
 
-import {pwd} from '../index'
-
 async function prepare() {
     shell.cd('app')
-    shell.exec(`cordova prepare`)
+    shell.exec(`${path.resolve('node_modules/.bin/cordova')} prepare`)
     shell.cd('..')
 }
 

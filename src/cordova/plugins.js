@@ -25,7 +25,7 @@ async function plugins() {
                     })
             }
 
-            shell.exec(`cordova plugin add ${id} ${variables}`)
+            shell.exec(`${path.resolve('node_modules/.bin/cordova')} plugin add ${id} ${variables}`)
         })
 
     shell.cd('..')
