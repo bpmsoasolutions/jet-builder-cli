@@ -1,6 +1,6 @@
 import shell from 'shelljs'
 
-import run, {recreateDir, copyFolders, copy} from '../index'
+import run, {recreateDir, copy} from '../index'
 
 const platforms = [
     { in: 'alta-android', out: 'android'},
@@ -24,19 +24,19 @@ async function jetAssets(args) {
         platforms.forEach((platform) => {
             run(recreateDir, `app/merges/${platform.out} app/merges/${platform.out}/images app/merges/${platform.out}/fonts`)
             run(copy, `-f ${jetPath}/css/${platform.in}/oj-alta.css app/merges/${platform.out}`)
-            run(copyFolders, `${jetPath}/css/${platform.in}/images app/merges/${platform.out}/images`)
-            run(copyFolders, `${jetPath}/css/${platform.in}/fonts app/merges/${platform.out}/fonts`)
+            run(copy, `-rf ${jetPath}/css/${platform.in}/images app/merges/${platform.out}`)
+            run(copy, `-rf ${jetPath}/css/${platform.in}/fonts app/merges/${platform.out}`)
         })
     } else {
-        await run(copyFolders, `${jetPath}/css/alta/fonts ${destination}/fonts`)
+        await run(copy, `-rf ${jetPath}/css/alta/fonts ${destination}`)
         await run(copy, `-f ${jetPath}/css/alta/oj-alta.css ${destination}`)
-        await run(copyFolders, `${jetPath}/css/alta/images ${destination}/images`)
+        await run(copy, `-rf ${jetPath}/css/alta/images ${destination}`)
     }
 
-    await run(copyFolders, `${jetPath}/css/common ${destination}/common`)
-    await run(copyFolders, `${jetPath}/js/libs/oj/resources ${destination}/resources`)
+    await run(copy, `-rf ${jetPath}/css/common ${destination}`)
+    await run(copy, `-rf ${jetPath}/js/libs/oj/resources ${destination}`)
     await run(recreateDir, `${destination}/ojtranslations`)
-    await run(copyFolders, `${jetPath}/js/libs/oj/resources/nls ${destination}/ojtranslations/nls`)
+    await run(copy, `-rf ${jetPath}/js/libs/oj/resources/nls ${destination}/ojtranslations`)
 }
 
 export default jetAssets;

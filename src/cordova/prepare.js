@@ -5,7 +5,7 @@ import {pwd} from '../index'
 
 async function prepare() {
     shell.cd('app')
-    shell.exec(`${path.resolve(pwd, 'node_modules/.bin/cordova')} prepare`)
+    shell.exec(`cordova prepare`)
     shell.cd('..')
 }
 

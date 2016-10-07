@@ -1,4 +1,4 @@
-import run, {recreateDir,copyFolders,clean,jet,rjsOptimizer,components,htmlReplace, assets, cordova} from '../index'
+import run, {recreateDir,copy,clean,jet,rjsOptimizer,components,htmlReplace, assets, cordova} from '../index'
 
 // $ devCordova
 
@@ -8,9 +8,9 @@ async function devCordova(args) {
     await run(assets, 'temp')
     await run(components, 'temp')
     await run(htmlReplace, 'temp --cordova')
-    await run(copyFolders, 'src/bower_modules temp/bower_modules')
-    await run(copyFolders, 'src/assets temp/assets')
-    await run(copyFolders, 'temp app/www')
+    await run(copy, '-rf src/bower_modules temp')
+    await run(copy, '-rf src/assets temp')
+    await run(copy, '-rf temp/* app/www')
     await run(clean, 'temp')
 }
 

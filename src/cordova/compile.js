@@ -13,7 +13,7 @@ async function compile(args) {
     }
 
     shell.cd('app')
-    shell.exec(`${path.resolve(pwd, 'node_modules/.bin/cordova')} compile ${args.join(' ')}`);
+    shell.exec(`cordova compile ${args.join(' ')}`);
     shell.cd('..')
 }
 

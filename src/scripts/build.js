@@ -9,10 +9,10 @@ async function build(args) {
     await run(components, 'temp')
     await run(htmlReplace, 'temp --production')
     await run(rjsOptimizer)
-    await run(copyFolders, 'src/assets dist')
-    await run(copy, '-Rf temp/index.html dist')
-    await run(copy, '-Rf temp/scripts.js dist')
-    await run(copy, '-Rf temp/styles.css dist')
+    await run(copy, '-rf src/assets dist')
+    await run(copy, '-rf temp/index.html dist')
+    await run(copy, '-rf temp/scripts.js dist')
+    await run(copy, '-rf temp/styles.css dist')
     await run(clean, 'temp')
 }
 

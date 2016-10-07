@@ -10,8 +10,8 @@ async function add(args) {
 
     shell.cd('app')
     args.map(target=>{
-        shell.exec(`${path.resolve(pwd, 'node_modules/.bin/cordova')} platform rm ${target}`);
-        shell.exec(`${path.resolve(pwd, 'node_modules/.bin/cordova')} platform add ${target}`);
+        shell.exec(`cordova platform rm ${target}`);
+        shell.exec(`cordova platform add ${target}`);
     })
     shell.cd('..')
 }
