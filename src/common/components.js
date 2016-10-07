@@ -6,7 +6,7 @@ import {ignores, presets, plugins} from '../config/babel'
 
 // $ components [output]
 
-const babelExecPath = (process.platform.index('win' > -1)) ? path.join('node_modules/.bin/babel') : path.join(pwd, 'node_modules/.bin/babel')
+const babelExecPath = path.join('node_modules/.bin/babel')
 
 async function components(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)

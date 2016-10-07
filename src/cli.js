@@ -39,6 +39,7 @@ export const main = function(){
                 try {
                     m = require(globalTool).default
                 } catch(e) {
+                    console.error(e.stack)
                     console.log(`Warn: project ${error}`)
                     console.log(`Warn: global ${e}`)
                     console.log('Neither local/modules task found...exiting')

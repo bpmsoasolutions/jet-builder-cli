@@ -1,6 +1,6 @@
 {
   "name": "jet-buildtool",
-  "version": "1.3.3",
+  "version": "1.3.5",
   "description": "Tasks to build oraceljet apps with superpowers",
   "author": "BPM & SOA Solutions <info@bpmsoasolutions.com> (http://www.bpmsoasolutions.com)",
   "contributors": [

@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/cli.babel.js"],"names":["require","main"],"mappings":";;AAAA;AACAA,QAAQ,gBAAR;AACAA,QAAQ,OAAR,EAAiBC,IAAjB","file":"cli.babel.js","sourcesContent":["//require(\"babel-register\")\nrequire(\"babel-polyfill\")\nrequire('./cli').main()\n"]}
+{"version":3,"sources":["../src/cli.babel.js"],"names":["require","main"],"mappings":";;AAAAA,QAAQ,gBAAR;AACAA,QAAQ,gBAAR;AACAA,QAAQ,OAAR,EAAiBC,IAAjB","file":"cli.babel.js","sourcesContent":["require(\"babel-register\")\nrequire(\"babel-polyfill\")\nrequire('./cli').main()\n"]}

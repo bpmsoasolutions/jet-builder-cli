@@ -1,7 +1,6 @@
 import path from 'path'
 import recreateDir from './utils/recreateDir'
 import copyByFound from './utils/copyByFound'
-import copyFolders from './utils/copyFolders'
 import copy from './utils/copy'
 import clean from './utils/clean'
 
@@ -22,8 +21,12 @@ import serveC from './cordova/serve'
 
 import run from './common/run'
 
-const pwd = path.resolve(__dirname, '../')
-const cordova = {
+
+console.log('index', path.resolve(__dirname, '../'))
+console.log('index', path.resolve(__dirname))
+
+export default run
+export const cordova = {
     add,
     clean,
     compile,
@@ -34,10 +37,11 @@ const cordova = {
     serve: serveC
 }
 
-export  {
+export const pwd = path.resolve(__dirname, '../')
+
+export {
     recreateDir,
     copyByFound,
-    copyFolders,
     copy,
     clean,
     assets,
@@ -45,9 +49,5 @@ export  {
     htmlReplace,
     jet,
     rjsOptimizer,
-    serve,
-    cordova,
-    pwd
+    serve
 }
-
-export default run
