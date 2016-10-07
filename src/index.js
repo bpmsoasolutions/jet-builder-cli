@@ -21,10 +21,6 @@ import serveC from './cordova/serve'
 
 import run from './common/run'
 
-
-console.log('index', path.resolve(__dirname, '../'))
-console.log('index', path.resolve(__dirname))
-
 export default run
 export const cordova = {
     add,

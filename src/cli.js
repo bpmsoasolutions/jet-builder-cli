@@ -3,6 +3,7 @@ import program from 'commander'
 import run from './common/run'
 import shell from 'shelljs'
 
+import updateNotifier from 'update-notifier'
 const pkg = require('../package.json')
 
 const header =  '\n'+
@@ -14,6 +15,8 @@ const header =  '\n'+
                 `Version: ${pkg.version}`
 
 export const main = function(){
+    updateNotifier({pkg}).notify()
+
     program
         .version(pkg.version)
         .description(header)
