@@ -9,6 +9,7 @@ async function devCordova(args) {
     await run(components, 'temp')
     await run(htmlReplace, 'temp --cordova')
     await run(copyFolders, 'src/bower_modules temp/bower_modules')
+    await run(copyFolders, 'src/assets temp/assets')
     await run(copyFolders, 'temp app/www')
     await run(clean, 'temp')
 }

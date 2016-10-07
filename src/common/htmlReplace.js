@@ -2,23 +2,11 @@ import shell from 'shelljs'
 import fs from 'fs'
 import path from 'path'
 
+import {textReplace} from '../utils/_utils'
+
 const index = fs.readFileSync(path.join('src', 'index.html'), 'utf-8')
 
 // $ htmlReplace [cordova or empty]
-
-const textReplace = function(tagStart, tagEnd, replacement, text){
-    if (!tagEnd){
-        tagEnd = tagStart
-    }
-
-    let start = text.indexOf(tagStart)
-    let end = text.indexOf(tagEnd)
-
-    let startText = text.slice(0,start)
-    let endText = text.slice(end+tagEnd.length,text.length)
-
-    return `${startText}${replacement}${endText}`
-}
 
 async function htmlReplace(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
