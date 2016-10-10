@@ -19,6 +19,7 @@ import prepare from './cordova/prepare'
 import ripple from './cordova/ripple'
 import runC from './cordova/run'
 import serveC from './cordova/serve'
+import build from './cordova/build'
 
 import run from './common/run'
 
@@ -31,7 +32,8 @@ export const cordova = {
     prepare,
     ripple,
     run: runC,
-    serve: serveC
+    serve: serveC,
+    build
 }
 
 export const pwd = path.resolve(__dirname, '../')
@@ -40,6 +42,8 @@ export const cordovaPwd =  path.resolve(pwd, '../.bin/cordova')
 export const ripplePwd =  path.resolve(pwd, '../.bin/ripple')
 export const ncpPwd =  path.resolve(pwd, '../.bin/ncp')
 export const babelPwd =  path.resolve(pwd, '../.bin/babel')
+export const uglifyPwd =  path.resolve(pwd, '../.bin/uglifycss')
+export const sassPwd =  path.resolve(pwd, '../.bin/node-sass')
 
 export {
     recreateDir,

@@ -1,7 +1,7 @@
 import path from 'path'
 import shell from 'shelljs'
 
-import {pwd} from '../index'
+import {pwd, uglifyPwd, sassPwd} from '../index'
 
 async function fontAwesome(css, output){
     await run(copyFolders, `src/bower_modules/font-awesome/fonts ${output}/fonts`)
@@ -20,7 +20,7 @@ async function assets(args) {
     let bowerModules = (args.indexOf('--bower-modules') > -1)
 
     //Parse scss
-    let css = shell.exec(`${path.join(pwd, 'node_modules/.bin/node-sass')} src/scss/styles.scss`, {silent: true})
+    let css = shell.exec(`${sassPwd} ${path.resolve('src/scss/styles.scss')}`, {silent: true})
 
     //Join css and other assets bower_module tasks
     if (bowerModules){
@@ -29,7 +29,7 @@ async function assets(args) {
 
     if (minize){
         shell.ShellString(css)
-            .exec(path.join(pwd, 'node_modules/.bin/uglifycss'), {silent: true})
+            .exec(uglifyPwd, {silent: true})
             .to(`${output}/styles.css`)
     } else {
         shell.ShellString(css)
