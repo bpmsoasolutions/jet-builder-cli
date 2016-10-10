@@ -35,6 +35,9 @@ export const cordova = {
 
 export const pwd = path.resolve(__dirname, '../')
 
+export const cordovaPwd =  path.resolve(pwd, 'node_modules/.bin/cordova')
+export const ripplePwd =  path.resolve(pwd, 'node_modules/.bin/ripple')
+
 export {
     recreateDir,
     copyByFound,

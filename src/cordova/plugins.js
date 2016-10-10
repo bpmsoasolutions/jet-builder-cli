@@ -1,7 +1,7 @@
 import path from 'path'
 import shell from 'shelljs'
 
-import {pwd} from '../index'
+import {pwd, cordovaPwd} from '../index'
 
 async function plugins() {
     let pluginPath = path.resolve('app/plugins/fetch.json')
@@ -25,7 +25,7 @@ async function plugins() {
                     })
             }
 
-            shell.exec(`${path.resolve('node_modules/.bin/cordova')} plugin add ${id} ${variables}`)
+            shell.exec(`${cordovaPwd} plugin add ${id} ${variables}`)
         })
 
     shell.cd('..')
