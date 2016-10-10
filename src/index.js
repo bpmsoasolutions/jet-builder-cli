@@ -1,6 +1,7 @@
 import path from 'path'
 import recreateDir from './utils/recreateDir'
 import copyByFound from './utils/copyByFound'
+import copyFolders from './utils/copyFolders'
 import copy from './utils/copy'
 import clean from './utils/clean'
 
@@ -35,12 +36,15 @@ export const cordova = {
 
 export const pwd = path.resolve(__dirname, '../')
 
-export const cordovaPwd =  path.resolve(pwd, 'node_modules/.bin/cordova')
-export const ripplePwd =  path.resolve(pwd, 'node_modules/.bin/ripple')
+export const cordovaPwd =  path.resolve(pwd, '../.bin/cordova')
+export const ripplePwd =  path.resolve(pwd, '../.bin/ripple')
+export const ncpPwd =  path.resolve(pwd, '../.bin/ncp')
+export const babelPwd =  path.resolve(pwd, '../.bin/babel')
 
 export {
     recreateDir,
     copyByFound,
+    copyFolders,
     copy,
     clean,
     assets,

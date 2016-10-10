@@ -8,7 +8,7 @@ async function buildCordova(args) {
     await run(components, 'temp')
     await run(htmlReplace, 'temp --cordova --production')
     await run(rjsOptimizer)
-    await run(copy, '-rf src/assets app/www/assets')
+    await run(copyFolders, 'src/assets app/www/assets')
     await run(copy, '-rf temp/index.html app/www')
     await run(copy, '-rf temp/scripts.js app/www')
     await run(copy, '-rf temp/styles.css app/www')

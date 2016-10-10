@@ -1,4 +1,4 @@
-import run, {recreateDir,copy,clean,jet,rjsOptimizer,components,htmlReplace} from '../index'
+import run, {recreateDir,copy,copyFolders,clean,jet,rjsOptimizer,components,htmlReplace} from '../index'
 
 // $ build
 
@@ -9,7 +9,7 @@ async function build(args) {
     await run(components, 'temp')
     await run(htmlReplace, 'temp --production')
     await run(rjsOptimizer)
-    await run(copy, '-rf src/assets dist')
+    await run(copyFolders, 'src/assets dist/assets')
     await run(copy, '-rf temp/index.html dist')
     await run(copy, '-rf temp/scripts.js dist')
     await run(copy, '-rf temp/styles.css dist')

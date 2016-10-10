@@ -1,19 +1,17 @@
 import shell from 'shelljs'
 import path from 'path'
 
-import run, {copy, copyByFound, pwd} from '../index'
+import run, {copy, copyByFound, pwd, babelPwd} from '../index'
 import {ignores, presets, plugins} from '../config/babel'
 
 // $ components [output]
-
-const babelExecPath = path.join('node_modules/.bin/babel')
 
 async function components(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
     let output = (args[0]) ? args[0] : 'temp'
 
-    shell.exec(`${babelExecPath} src --ignore=${ignores} --source-maps=inline --presets=${presets} --plugins=${plugins} --out-dir=${output}`)
+    shell.exec(`${babelPwd} src --ignore=${ignores} --source-maps=inline --presets=${presets} --plugins=${plugins} --out-dir=${output}`)
 
     //Also copy the require.config and the html of the templates
     await run(copy,`-f src/app/require.config.js ${path.join(output, 'app')}`)
