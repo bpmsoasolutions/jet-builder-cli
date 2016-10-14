@@ -9,6 +9,6 @@ async function runCordova(args) {
     await run(cordova.run, 'android')
 }
 
-export default runCordova;
+export default runCordova
 
 

@@ -6,4 +6,4 @@ async function dev() {
     await run(serve, 'src --es6 --scss')
 }
 
-export default dev;
+export default dev

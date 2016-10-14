@@ -9,12 +9,12 @@ async function add(args) {
 
     shell.cd('app')
     args.map(target=>{
-        shell.exec(`${cordovaPwd} platform rm ${target}`);
-        shell.exec(`${cordovaPwd} platform add ${target}`);
+        shell.exec(`${cordovaPwd} platform rm ${target}`)
+        shell.exec(`${cordovaPwd} platform add ${target}`)
     })
     shell.cd('..')
 }
 
-export default add;
+export default add
 
 

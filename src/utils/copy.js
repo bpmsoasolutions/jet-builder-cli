@@ -8,4 +8,4 @@ async function copy(args) {
     shell.cp(...args)
 }
 
-export default copy;
+export default copy

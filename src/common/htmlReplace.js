@@ -4,11 +4,11 @@ import path from 'path'
 
 import {textReplace} from '../utils/_utils'
 
-const index = fs.readFileSync(path.join('src', 'index.html'), 'utf-8')
-
 // $ htmlReplace [cordova or empty]
 
 async function htmlReplace(args) {
+    const index = fs.readFileSync(path.join('src', 'index.html'), 'utf-8')
+
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
     let text = index
@@ -32,4 +32,4 @@ async function htmlReplace(args) {
 
     fs.writeFileSync(path.join(output, 'index.html'), text, {encoding: 'utf-8'})
 }
-export default htmlReplace;
+export default htmlReplace

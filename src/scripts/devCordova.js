@@ -14,6 +14,6 @@ async function devCordova(args) {
     await run(clean, 'temp')
 }
 
-export default devCordova;
+export default devCordova
 
 

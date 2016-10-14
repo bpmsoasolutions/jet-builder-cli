@@ -16,13 +16,13 @@ async function serve(args) {
     let scss = (args.indexOf('--scss') > -1)
 
     let server = http.createServer((request, response) => {
-        console.log('request ', request.url);
+        console.log('request ', request.url)
 
         //cors
-        response.setHeader('Access-Control-Allow-Origin', '*');
-        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        response.setHeader('Access-Control-Allow-Credentials', true);
+        response.setHeader('Access-Control-Allow-Origin', '*')
+        response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+        response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+        response.setHeader('Access-Control-Allow-Credentials', true)
 
         let filePath = (request.url === '/') ?  `${args[0]}/index.html` : `${args[0]}${request.url}`
         filePath = path.resolve(filePath)
@@ -32,8 +32,8 @@ async function serve(args) {
             filePath = filePath.slice(0,qPos)
         }
 
-        let extname = String(path.extname(filePath)).toLowerCase();
-        let contentType = 'text/html';
+        let extname = String(path.extname(filePath)).toLowerCase()
+        let contentType = 'text/html'
         let mimeTypes = {
             '.html': 'text/html',
             '.js':   'text/javascript',
@@ -50,9 +50,9 @@ async function serve(args) {
             '.eot':  'application/vnd.ms-fontobject',
             '.otf':  'application/font-otf',
             '.svg':  'application/image/svg+xml'
-        };
+        }
 
-        contentType = mimeTypes[extname] || 'application/octect-stream';
+        contentType = mimeTypes[extname] || 'application/octect-stream'
 
         if (scss && filePath.indexOf('styles.css') > -1){
             let {css} = sass.renderSync({
@@ -106,15 +106,15 @@ async function serve(args) {
             response.writeHead(200, { 'Content-Type': contentType })
             response.end(content, 'utf-8')
             return
-        });
+        })
 
     })
     .on('error', function (e) {
         // Handle your error here
-        console.log(e);
+        console.log(e)
     })
 
-    server.listen(3000);
+    server.listen(3000)
 }
 
-export default serve;
+export default serve

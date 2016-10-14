@@ -8,4 +8,4 @@ async function prepare() {
     shell.cd('..')
 }
 
-export default prepare;
+export default prepare

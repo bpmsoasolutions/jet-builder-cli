@@ -6,9 +6,6 @@ import vm from 'vm'
 
 import {requireJsConfig} from '../config/rjs'
 
-var requirejsDev = fs.readFileSync(path.resolve('src/app/require.config.js'))
-const bowerCfg =  JSON.parse(fs.readFileSync(path.resolve('.bowerrc')))
-
 let optimize = function(cfg){
     return new Promise((resolve, reject)=>{
         cfg.output = resolve
@@ -21,7 +18,7 @@ let optimize = function(cfg){
                 },
                 function (err) {
                     reject(err)
-                });
+                })
         } catch (e) {
             reject(e)
         }
@@ -30,7 +27,10 @@ let optimize = function(cfg){
 }
 
 async function rjsOptimizer(args) {
-    //Take bower_modules from src
+
+    const requirejsDev = fs.readFileSync(path.resolve('src/app/require.config.js'))
+    const bowerCfg =  JSON.parse(fs.readFileSync(path.resolve('.bowerrc')))
+
     let requirejsDevCfg = vm.runInNewContext( `${requirejsDev}; require`)
 
     let mergedPaths = Object.assign(requireJsConfig.paths, requirejsDevCfg.paths)
@@ -63,4 +63,4 @@ async function rjsOptimizer(args) {
 
 
 
-export default rjsOptimizer;
+export default rjsOptimizer

@@ -5,7 +5,7 @@ import {pwd, cordovaPwd} from '../index'
 
 async function plugins() {
     let pluginPath = path.resolve('app/plugins/fetch.json')
-    let plugins = require(pluginPath);
+    let plugins = require(pluginPath)
 
     shell.cd('app')
 
@@ -31,4 +31,4 @@ async function plugins() {
     shell.cd('..')
 }
 
-export default plugins;
+export default plugins

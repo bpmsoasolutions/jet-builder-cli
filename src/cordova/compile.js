@@ -8,10 +8,10 @@ async function compile(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
     shell.cd('app')
-    shell.exec(`${cordovaPwd} compile ${args.join(' ')}`);
+    shell.exec(`${cordovaPwd} compile ${args.join(' ')}`)
     shell.cd('..')
 }
 
-export default compile;
+export default compile
 
 

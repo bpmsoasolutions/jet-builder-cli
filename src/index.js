@@ -17,26 +17,36 @@ import compile from './cordova/compile'
 import plugins from './cordova/plugins'
 import prepare from './cordova/prepare'
 import ripple from './cordova/ripple'
+import build from './cordova/build'
+import remove from './cordova/remove'
 import runC from './cordova/run'
 import serveC from './cordova/serve'
-import build from './cordova/build'
+import cleanC from './cordova/clean'
+
+import {textReplace} from './utils/_utils'
 
 import run from './common/run'
 
 export default run
+
+export const utils = {
+    textReplace
+}
+
 export const cordova = {
     add,
-    clean,
     compile,
     plugins,
     prepare,
     ripple,
+    build,
+    remove,
     run: runC,
     serve: serveC,
-    build
+    clean: cleanC
 }
 
-export const pwd = path.resolve(__dirname, '../')
+export const pwd = path.resolve('node_modules', 'jet-buildtool')
 
 export const cordovaPwd =  path.resolve(pwd, '../.bin/cordova')
 export const ripplePwd =  path.resolve(pwd, '../.bin/ripple')

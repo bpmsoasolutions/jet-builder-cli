@@ -12,4 +12,4 @@ async function copyFolders(args) {
     shell.exec(`${ncpPwd} ${args[0]} ${args[1]} ${ignore}`)
 }
 
-export default copyFolders;
+export default copyFolders

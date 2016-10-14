@@ -18,6 +18,6 @@ async function buildCordova(args) {
     await run(cordova.run, 'android')
 }
 
-export default buildCordova;
+export default buildCordova
 
 

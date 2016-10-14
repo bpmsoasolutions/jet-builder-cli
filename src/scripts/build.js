@@ -16,4 +16,4 @@ async function build(args) {
     await run(clean, 'temp')
 }
 
-export default build;
+export default build

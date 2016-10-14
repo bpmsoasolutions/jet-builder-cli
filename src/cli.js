@@ -2,10 +2,9 @@ import path from 'path'
 import program from 'commander'
 import run from './common/run'
 import shell from 'shelljs'
-
 import updateNotifier from 'update-notifier'
-const pkg = require('../package.json')
 
+const pkg = require('../package.json')
 const header =  '\n'+
                 '    __ _____             _     _      _       _ _   _ _           _ \n'+
                 ' __|  | __  |   ___     |_|___| |_   | |_ _ _|_| |_| | |_ ___ ___| |\n'+
@@ -20,13 +19,6 @@ export const main = function(){
     program
         .version(pkg.version)
         .description(header)
-
-    /*program
-        .command('new <folder>')
-        .description('Create new project')
-        .action(function(folder, options){
-            console.log('setting up project on', folder);
-        });*/
 
     program
         .command('run <cmd>')
@@ -51,7 +43,6 @@ export const main = function(){
             }
 
             return run(m)
-                .then(a=> console.log(a))
                 .catch(err => { console.error(err.stack); process.exit(1) })
         })
 

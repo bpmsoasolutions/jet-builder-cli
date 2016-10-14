@@ -18,4 +18,4 @@ async function components(args) {
     await run(copyByFound, `src/**/*.html src ${output} bower_modules`)
 }
 
-export default components;
+export default components

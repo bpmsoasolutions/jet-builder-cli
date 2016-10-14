@@ -38,4 +38,4 @@ async function copyByFound(args) {
         })
 }
 
-export default copyByFound;
+export default copyByFound

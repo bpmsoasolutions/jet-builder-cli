@@ -11,4 +11,4 @@ async function cleanCordova(opts) {
     ])
 }
 
-export default cleanCordova;
+export default cleanCordova

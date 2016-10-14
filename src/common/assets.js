@@ -37,4 +37,4 @@ async function assets(args) {
     }
 }
 
-export default assets;
+export default assets

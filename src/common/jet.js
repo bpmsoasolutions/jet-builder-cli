@@ -39,7 +39,7 @@ async function jetAssets(args) {
     await run(copyFolders, `${jetPath}/js/libs/oj/resources/nls ${destination}/ojtranslations`)
 }
 
-export default jetAssets;
+export default jetAssets
 
 
 

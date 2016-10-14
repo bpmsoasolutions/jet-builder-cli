@@ -9,4 +9,4 @@ async function startCordova(args) {
     await run(cordova.prepare)
 }
 
-export default startCordova;
+export default startCordova
