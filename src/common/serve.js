@@ -24,13 +24,15 @@ async function serve(args) {
         response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
         response.setHeader('Access-Control-Allow-Credentials', true)
 
-        let filePath = (request.url === '/') ?  `${args[0]}/index.html` : `${args[0]}${request.url}`
-        filePath = path.resolve(filePath)
+        let filePath = request.url
 
-        let qPos = filePath.indexOf('?')
-        if (qPos>-1){
-            filePath = filePath.slice(0,qPos)
+        let qPos = filePath.indexOf('?');
+        if (qPos > -1) {
+            filePath = filePath.slice(0, qPos);
         }
+
+        filePath = filePath === '/' ? `${args[0]}/index.html` : `${args[0]}${request.url}`
+        filePath = path.resolve(filePath)
 
         let extname = String(path.extname(filePath)).toLowerCase()
         let contentType = 'text/html'
