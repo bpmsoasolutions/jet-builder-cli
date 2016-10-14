@@ -1,4 +1,4 @@
-​​## JB - jet-buildtool
+# JB - jet-buildtool
 
 CLI tool and helpers to build oracle jet apps with superpowers
 
@@ -11,6 +11,7 @@ npm install jet-buildtool --save
 ```
 
 **You’ll need to have Node >= 6 and npm >= 3.** You can use nvm to easily switch Node versions between different projects.
+
 **This tool doesn’t assume a Node backend.** The Node installation is only required for the build tools that rely on it locally, such as RJS and Babel.
 
 ### Buildtool structure
