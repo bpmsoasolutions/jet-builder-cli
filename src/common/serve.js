@@ -31,7 +31,7 @@ async function serve(args) {
             filePath = filePath.slice(0, qPos);
         }
 
-        filePath = filePath === '/' ? `${args[0]}/index.html` : `${args[0]}${request.url}`
+        filePath = filePath === '/' ? `${args[0]}/index.html` : `${args[0]}${filePath}`
         filePath = path.resolve(filePath)
 
         let extname = String(path.extname(filePath)).toLowerCase()
