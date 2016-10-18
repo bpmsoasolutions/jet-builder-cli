@@ -25,13 +25,15 @@ export const main = function(){
         .description('Execute the given script')
         .action(function(cmd, options){
             let localTool = path.resolve(`tool/${cmd}.js`)
-            let globalTool = path.resolve(__dirname, `./scripts/${cmd}.js`)
             let m
 
             try {
                 m = require(localTool).default
             } catch(error) {
                 try {
+                    let composedCmd = cmd.split('.')
+                    let globalTool = (composedCmd.length > 1) ? `./${composedCmd[0]}/${composedCmd[1]}.js` : `./scripts/${cmd}.js`
+                    globalTool = path.resolve(__dirname, globalTool)
                     m = require(globalTool).default
                 } catch(e) {
                     console.error(e.stack)
