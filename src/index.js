@@ -17,11 +17,19 @@ import compile from './cordova/compile'
 import plugins from './cordova/plugins'
 import prepare from './cordova/prepare'
 import ripple from './cordova/ripple'
-import build from './cordova/build'
+import buildC from './cordova/build'
 import remove from './cordova/remove'
 import runC from './cordova/run'
 import serveC from './cordova/serve'
 import cleanC from './cordova/clean'
+
+import build from './scripts/build'
+import buildCordova from './scripts/buildCordova'
+import dev from './scripts/dev'
+import devCordova from './scripts/devCordova'
+import prodCordova from './scripts/prodCordova'
+import runCordova from './scripts/runCordova'
+import startCordova from './scripts/startCordova'
 
 import {textReplace} from './utils/_utils'
 
@@ -33,17 +41,27 @@ export const utils = {
     textReplace
 }
 
+export const scripts = {
+    build,
+    buildCordova,
+    dev,
+    devCordova,
+    prodCordova,
+    runCordova,
+    startCordova
+}
+
 export const cordova = {
     add,
     compile,
     plugins,
     prepare,
     ripple,
-    build,
     remove,
     run: runC,
     serve: serveC,
-    clean: cleanC
+    clean: cleanC,
+    build: buildC
 }
 
 export const pwd = path.resolve('node_modules', 'jet-buildtool')
