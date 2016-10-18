@@ -1,23 +1,26 @@
-import run, {recreateDir,copy,clean,jet,rjsOptimizer,components,htmlReplace, cordova} from '../index'
+import run, {cordova} from '../index'
+import prodCordova from './prodCordova'
+import devCordova from './devCordova'
 // $ buildCordova
 
 async function buildCordova(args) {
-    await run(recreateDir, 'temp app/www')
-    await run(jet, '--cordova')
-    await run(assets, 'temp -m --bower-modules')
-    await run(components, 'temp')
-    await run(htmlReplace, 'temp --cordova --production')
-    await run(rjsOptimizer)
-    await run(copyFolders, 'src/assets app/www/assets')
-    await run(copy, '-rf temp/index.html app/www')
-    await run(copy, '-rf temp/scripts.js app/www')
-    await run(copy, '-rf temp/styles.css app/www')
-    await run(clean, 'temp')
-    await run(cordova.prepare)
-    await run(cordova.compile, '--target=android')
-    await run(cordova.run, 'android')
+    args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
+
+    if (args.indexOf('production')){
+        await run(prodCordova)
+    } else {
+        await run(devCordova)
+    }
+
+    if (args.indexOf('android') > -1){
+        await run(cordova.build, `android release -- --buildConfig=${path.resolve('app/buildAndroidRelease.json')}`)
+    }
+    if (args.indexOf('ios') > -1){
+        await run(cordova.build, `ios release -- --buildConfig=${path.resolve('app/buildIOSRelease.json')}`)
+    }
+    if (args.indexOf('windows') > -1){
+        await run(cordova.build, `windows release -- --buildConfig=${path.resolve('app/buildWindowsRelease.json')}`)
+    }
 }
 
 export default buildCordova
-
-
