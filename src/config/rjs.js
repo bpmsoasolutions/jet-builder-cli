@@ -6,11 +6,7 @@ export const requireJsConfig = {
         'requireLib': 'bower_modules/requirejs/require'
     },
     include: [
-        'requireLib',
-        'containers/home/home',
-        'containers/product/product',
-        'components/nav-bar/nav-bar',
-        'text!components/bss-footer/footer.html'
+        'requireLib'
     ],
     insertRequire: ['app/startup'],
     bundles: {}

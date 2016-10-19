@@ -1,15 +1,18 @@
+import fs from 'fs'
 import path from 'path'
 import shell from 'shelljs'
 
-import {pwd, uglifyPwd, sassPwd} from '../index'
+import run, {pwd, uglifyPwd, sassPwd, copyFolders} from '../index'
 
 async function fontAwesome(css, output){
     await run(copyFolders, `src/bower_modules/font-awesome/fonts ${output}/fonts`)
+    return new Promise((resolve, reject)=>{
+        let faCss = fs.readFileSync('src/bower_modules/font-awesome/css/font-awesome.css', 'utf-8')
+        faCss = faCss.replace(/url\((')?\.\.\/fonts\//g, 'url($1fonts/')
 
-    let faCss = fs.readFileSync('src/bower_modules/font-awesome/css/font-awesome.css', 'utf-8')
-    faCss = faCss.replace(/url\((')?\.\.\/fonts\//g, 'url($1fonts/')
-
-    css += faCss
+        css += faCss
+        resolve(css)
+    })
 }
 
 async function assets(args) {
@@ -24,7 +27,7 @@ async function assets(args) {
 
     //Join css and other assets bower_module tasks
     if (bowerModules){
-        await fontAwesome(css, output)
+        css = await fontAwesome(css, output)
     }
 
     if (minize){

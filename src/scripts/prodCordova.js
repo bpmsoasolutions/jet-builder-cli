@@ -1,4 +1,4 @@
-import run, {recreateDir,copyFolders,clean,jet,rjsOptimizer,components,htmlReplace, assets} from '../index'
+import run, {recreateDir,copy,copyFolders,clean,jet,rjsOptimizer,components,htmlReplace, assets} from '../index'
 
 // $ devCordova
 
