@@ -28,8 +28,9 @@ import buildCordova from './scripts/buildCordova'
 import dev from './scripts/dev'
 import devCordova from './scripts/devCordova'
 import prodCordova from './scripts/prodCordova'
-import runCordova from './scripts/runCordova'
 import startCordova from './scripts/startCordova'
+import webCordova from './scripts/webCordova'
+import releaseCordova from './scripts/releaseCordova'
 
 import {textReplace} from './utils/_utils'
 
@@ -47,8 +48,8 @@ export const scripts = {
     dev,
     devCordova,
     prodCordova,
-    runCordova,
-    startCordova
+    startCordova,
+    webCordova
 }
 
 export const cordova = {

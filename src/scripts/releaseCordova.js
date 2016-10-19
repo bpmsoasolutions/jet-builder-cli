@@ -1,18 +1,13 @@
 import run, {cordova} from '../index'
 import prodCordova from './prodCordova'
 import devCordova from './devCordova'
-// $ buildCordova
+// $ releaseCordova
 
-async function buildCordova(args) {
+async function releaseCordova(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
-    if (args.indexOf('production')){
-        await run(prodCordova)
-    } else {
-        await run(devCordova)
-    }
+    await run(prodCordova)
 
-    let env = (args.indexOf('release')) ? '--release' : '--debug'
     let platform = null
 
     platform = (args.indexOf('android') > -1) ? 'android' : platform
@@ -23,11 +18,11 @@ async function buildCordova(args) {
         throw console.log('Platform not recognized')
     }
 
-    await run(cordova.build, `${platform} ${env}`)
+    await run(cordova.build, `${platform} --release`)
 
     if (args.indexOf('device') > -1){
-        await run(cordova.run, `${platform} ${env}`)
+        await run(cordova.run, `${platform} --release`)
     }
 }
 
-export default buildCordova
+export default releaseCordova

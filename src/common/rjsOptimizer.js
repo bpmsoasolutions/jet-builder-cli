@@ -39,21 +39,11 @@ async function rjsOptimizer(args) {
             mergedPaths[f] = mergedPaths[f].replace('bower_modules', `../${bowerCfg.directory}`)
         })
 
-    // Includes all modules used explicity
-    // Remains the native requireJS deps that are excluded
-    let includes = requireJsConfig.include
-    let exclude = ["jqueryui-amd", "ojs", "ojtranslations"]
-    Object.keys(mergedPaths)
-        .filter(f=>exclude.indexOf(f)<0)
-        .forEach(f=>{
-            includes.push(mergedPaths[f])
-        })
-
     shell.ls('temp/**/*.js')
         .filter(e => e.indexOf('bower_modules')<0 )
         .filter(e => e.indexOf('require.config.js')<0 )
         .forEach(f=>{
-            includes.push(f.replace("temp/","").replace(".js",""))
+            requireJsConfig.include.push(f.replace("temp/","").replace(".js",""))
         })
 
     await optimize({
@@ -64,8 +54,7 @@ async function rjsOptimizer(args) {
         include: requireJsConfig.include,
         insertRequire: ['app/startup'],
         shim: requirejsDevCfg.shim,
-        bundles: {},
-        optimize: "none"
+        bundles: {}
     })
 }
 
