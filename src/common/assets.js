@@ -5,10 +5,10 @@ import shell from 'shelljs'
 import run, {pwd, uglifyPwd, sassPwd, copyFolders} from '../index'
 
 async function fontAwesome(css, output){
-    await run(copyFolders, `src/bower_modules/font-awesome/fonts ${output}/fonts`)
+    await run(copyFolders, `src/bower_modules/font-awesome/fonts ${output}/assets/fonts`)
     return new Promise((resolve, reject)=>{
         let faCss = fs.readFileSync('src/bower_modules/font-awesome/css/font-awesome.css', 'utf-8')
-        faCss = faCss.replace(/url\((')?\.\.\/fonts\//g, 'url($1fonts/')
+        faCss = faCss.replace(/url\((')?\.\.\/fonts\//g, 'url($1assets/fonts/')
 
         css += faCss
         resolve(css)

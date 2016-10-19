@@ -36,7 +36,7 @@ async function jetAssets(args) {
     await run(copyFolders, `${jetPath}/css/common ${destination}/common`)
     await run(copyFolders, `${jetPath}/js/libs/oj/resources ${destination}/resources`)
     await run(recreateDir, `${destination}/ojtranslations`)
-    await run(copyFolders, `${jetPath}/js/libs/oj/resources/nls ${destination}/ojtranslations`)
+    await run(copyFolders, `${jetPath}/js/libs/oj/resources ${destination}/ojtranslations`)
 }
 
 export default jetAssets
