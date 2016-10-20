@@ -12,7 +12,7 @@ async function buildCordova(args) {
         await run(devCordova)
     }
 
-    let env = (args.indexOf('release')) ? '--release' : '--debug'
+    let env = (args.indexOf('release') > -1) ? '--release' : '--debug'
     let platform = null
 
     platform = (args.indexOf('android') > -1) ? 'android' : platform
