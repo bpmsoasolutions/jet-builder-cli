@@ -6,7 +6,7 @@ import devCordova from './devCordova'
 async function buildCordova(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
-    if (args.indexOf('production')){
+    if (args.indexOf('production') > -1){
         await run(prodCordova)
     } else {
         await run(devCordova)

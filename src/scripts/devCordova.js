@@ -4,12 +4,12 @@ import run, {recreateDir,copyFolders,clean,jet,rjsOptimizer,components,htmlRepla
 
 async function devCordova(args) {
     await run(recreateDir, 'temp app/www')
+    await run(copyFolders, 'src/bower_modules temp/bower_modules')
+    await run(copyFolders, 'src/assets temp/assets')
     await run(jet, '--cordova')
     await run(assets, 'temp')
     await run(components, 'temp')
     await run(htmlReplace, 'temp --cordova')
-    await run(copyFolders, 'src/bower_modules temp/bower_modules')
-    await run(copyFolders, 'src/assets temp/assets')
     await run(copyFolders, 'temp app/www')
     await run(clean, 'temp')
 }
