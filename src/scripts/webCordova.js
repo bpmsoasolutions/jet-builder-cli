@@ -7,7 +7,7 @@ import prodCordova from './prodCordova'
 async function webCordova(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
 
-    if (args.indexOf('production')){
+    if (args.indexOf('production') > -1){
         await run(prodCordova)
     } else {
         await run(devCordova)
