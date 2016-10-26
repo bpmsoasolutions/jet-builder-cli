@@ -12,11 +12,11 @@ const pwd = __dirname
 
 async function serve(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
-    args = argsParser(args)
+    let params = argsParser(args)
 
-    const es6 = (args.es6) ? args.es6 : false
-    const scss = (args.scss) ? args.scss : false
-    const port = (args.port) ? args.port : 3000
+    const es6 = (params.es6) ? params.es6 : false
+    const scss = (params.scss) ? params.scss : false
+    const port = (params.port) ? params.port : 3000
 
     const server = http.createServer((request, response) => {
         console.log('request ', request.url)
@@ -120,7 +120,7 @@ async function serve(args) {
     })
 
     server.listen(port)
-    console.log(`Server is listening on port ${port}`);
+    console.log(`Serving folder [${args[0]}] is listening on port ${port}`);
 }
 
 export default serve
