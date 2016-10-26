@@ -4,6 +4,7 @@ import path from 'path'
 import * as babel from 'babel-core'
 import sass from 'node-sass'
 
+import {argsParser} from '../utils/_utils'
 import {ignores, onlys, presets, plugins} from '../config/babel'
 
 const pwd = __dirname
@@ -11,11 +12,13 @@ const pwd = __dirname
 
 async function serve(args) {
     args = (args) ? args.split(' ') : process.argv.slice(3, process.argv.length)
+    args = argsParser(args)
 
-    let es6 = (args.indexOf('--es6') > -1)
-    let scss = (args.indexOf('--scss') > -1)
+    const es6 = (args.es6) ? args.es6 : false
+    const scss = (args.scss) ? args.scss : false
+    const port = (args.port) ? args.port : 3000
 
-    let server = http.createServer((request, response) => {
+    const server = http.createServer((request, response) => {
         console.log('request ', request.url)
 
         //cors
@@ -116,7 +119,8 @@ async function serve(args) {
         console.log(e)
     })
 
-    server.listen(3000)
+    server.listen(port)
+    console.log(`Server is listening on port ${port}`);
 }
 
 export default serve

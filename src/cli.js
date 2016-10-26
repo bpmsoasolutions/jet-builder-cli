@@ -21,7 +21,7 @@ export const main = function(){
         .description(header)
 
     program
-        .command('run <cmd>')
+        .command('run <cmd>').allowUnknownOption(true)
         .description('Execute the given script')
         .action(function(cmd, options){
             let localTool = path.resolve(`tool/${cmd}.js`)
