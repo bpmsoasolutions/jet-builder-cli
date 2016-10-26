@@ -109,10 +109,10 @@ This folder contains the babel and requires optimizer config
 
 ## Build Tasks
 
-- build: build the web project mimicked
-- `buildCordova [production?] [platforms...]`: build the project mimified, in the platform and the environment you specify, must exists the build.json config for every  platform inside the app folder (`buildAndroid.json`, `buildIOS.json` or `buildWindows.json`)
-- dev: prepare all web project without mimification
-- devCordova: prepare all cordova build without mimification
+- build: build the web project minified
+- `buildCordova [production?] [platforms...]`: build the project minified, in the platform and the environment you specify, must exists the build.json config for every  platform inside the app folder (`buildAndroid.json`, `buildIOS.json` or `buildWindows.json`)
+- dev: prepare all web project without minification
+- devCordova: prepare all cordova build without minification
 - `runCordova a [production?] [platforms...]`: ejecute devCordova, build cordova and run cordova, in the platfdorm you specify and for dev and prod envs
 - startCordova: clean cordova project and recreate, coping jet files add platforms, plugins and prepare
 
