@@ -1,4 +1,7 @@
+import fs from 'fs'
 import path from 'path'
+import resolve from 'resolve'
+
 import recreateDir from './utils/recreateDir'
 import copyByFound from './utils/copyByFound'
 import copyFolders from './utils/copyFolders'
@@ -67,12 +70,22 @@ export const cordova = {
 
 export const pwd = path.resolve('node_modules', 'jet-buildtool')
 
-export const cordovaPwd =  path.resolve(pwd, '../.bin/cordova')
-export const ripplePwd =  path.resolve(pwd, '../.bin/ripple')
-export const ncpPwd =  path.resolve(pwd, '../.bin/ncp')
-export const babelPwd =  path.resolve(pwd, '../.bin/babel')
-export const uglifyPwd =  path.resolve(pwd, '../.bin/uglifycss')
-export const sassPwd =  path.resolve(pwd, '../.bin/node-sass')
+let binPwd = null
+
+if (fs.existsSync(path.resolve(pwd, 'node_modules/.bin', 'cordova'))) {
+    binPwd = path.resolve(pwd, 'node_modules/.bin')
+} else if(fs.existsSync(path.resolve(pwd, '../.bin', 'cordova'))) {
+    binPwd = path.resolve(pwd, '../.bin')
+} else {
+    throw new Error('Any executable find, try "yarn" or "npm install"')
+}
+
+export const cordovaPwd = path.resolve(binPwd, 'cordova')
+export const ripplePwd = path.resolve(binPwd, 'ripple')
+export const ncpPwd = path.resolve(binPwd, 'ncp')
+export const babelPwd = path.resolve(binPwd, 'babel')
+export const uglifyPwd = path.resolve(binPwd, 'uglifycss')
+export const sassPwd = path.resolve(binPwd, 'node-sass')
 
 export {
     recreateDir,
