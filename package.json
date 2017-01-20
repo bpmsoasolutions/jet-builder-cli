@@ -29,7 +29,7 @@
     "cordova": "^6.3.1",
     "del": "^2.2.2",
     "ncp": "^2.0.0",
-    "node-sass": "^3.10.1",
+    "node-sass": "^4.3.0",
     "requirejs": "^2.3.2",
     "resolve": "^1.1.7",
     "ripple-emulator": "^0.9.36",
@@ -45,6 +45,6 @@
     "oracle",
     "oracle-jet",
     "jet",
-    "javscript extension toolkit"
+    "javascript extension toolkit"
   ]
 }
