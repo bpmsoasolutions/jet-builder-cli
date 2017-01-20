@@ -14,7 +14,6 @@ const run = function (fn, options) {
     const task = typeof fn.default === 'undefined' ? fn : fn.default
     const start = new Date()
     console.log(`[${format(start)}] Starting '${task.name}${options ? `(${options})` : ''}'...`)
-
     return task(options).then(resolution => {
         const end = new Date()
         const time = end.getTime() - start.getTime()
