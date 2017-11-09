@@ -7,7 +7,7 @@ CLI tool and helpers to build oracle jet apps with superpowers
 ### Installation
 
 ```sh
-npm install jet-buildtool --save
+npm install @bpmsoasolutions/jet-buildtool --save
 ```
 
 **You’ll need to have Node >= 6 and npm >= 3.** You can use nvm to easily switch Node versions between different projects.
